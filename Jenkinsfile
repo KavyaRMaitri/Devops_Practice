@@ -6,10 +6,10 @@ pipeline {
         sh 'python3 --version'
       }
     }
-    stage('Add2Numbers') {
+    stage('Build') {
       steps {
         sh 'python3 Add2Numbers.py'
       }
     }
   }
-
+}
