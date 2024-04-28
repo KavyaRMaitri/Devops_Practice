@@ -12,7 +12,7 @@ pipeline {
             steps {
                 script {
                     // Execute the Python script with secret inputs
-                    sh "python3 S1.py $num1 $num2"
+                    sh ('python3 S1.py $num1 $num2')
                 }
             }
         }
