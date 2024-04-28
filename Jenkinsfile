@@ -19,7 +19,7 @@ pipeline {
                     stage('Stage 2') {
                         steps {
                             script {
-                                sh "python3 Secrete.py"
+                                sh "python3 Secrete.py ${num1} ${num2}"
                             }
                         }
                     }
