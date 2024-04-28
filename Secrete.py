@@ -1,11 +1,12 @@
 import os
 
 def add_numbers(num1, num2):
-        result = float(num1) + float(num2)
-        print(f"The result of {num1} + {num2} is: {result}")
+    return num1 + num2
 
 if __name__ == "__main__":
-    secret_num1 = os.environ.get('Secrete_number1')
-    secret_num2 = os.environ.get('Secrete_number2')
-
-    add_numbers(secret_num1, secret_num2)
+    
+    num1 = int(os.environ.get('NUM1'))
+    num2 = int(os.environ.get('NUM2'))
+    
+    result = add_numbers(num1, num2)
+    print("The sum of", num1, "and", num2, "is:", result)
