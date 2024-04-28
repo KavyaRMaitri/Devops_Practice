@@ -1,18 +1,13 @@
 pipeline {
     agent any
-    
-    environment {
-        // Define environment variables to store secret values
-        secret1 = credentials('secret1')
-        secret1 = credentials('secret2')
-    }
-    
+parameters {
+  credentials credentialType: 'org.jenkinsci.plugins.plaincredentials.impl.StringCredentialsImpl', defaultValue: 'Kavya_Num1', name: 'kavya_Num1', required: true
+  credentials credentialType: 'org.jenkinsci.plugins.plaincredentials.impl.StringCredentialsImpl', defaultValue: 'kavya_Num2', name: 'secret_Num2', required: true
+}
     stages {
         stage('Stage 2') {
             steps {
-               withCredentials([string(credentialsId: 'secret1', variable: 'secret1'), string(credentialsId: 'secret2', variable: 'secret2')]) {
-               sh ('S1.py ${secret1} ${secret2}')
-}
+               sh S1.py
 }
 }
 }
