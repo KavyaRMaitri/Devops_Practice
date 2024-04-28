@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+
+    environment {
+        num1 = credentials('secret1')
+        num2 = credentials('secret2')
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                script {
+                    // Execute the Python script to add numbers
+                    sh 'python3 S1.py'
+                }
+            }
+        }
+    }
+}
