@@ -3,15 +3,15 @@ pipeline {
     
     environment {
         // Define environment variables to store secret values
-        num1 = credentials('secret1')
-        num2 = credentials('secret2')
+        secret1 = credentials('secret1')
+        secret1 = credentials('secret2')
     }
     
     stages {
         stage('Stage 2') {
             steps {
-               withCredentials([string(credentialsId: 'secret1', variable: 'num1'), string(credentialsId: 'secret2', variable: 'num2')]) {
-               sh ('S1.py ${num1} ${num2}')
+               withCredentials([string(credentialsId: 'secret1', variable: 'secret1'), string(credentialsId: 'secret2', variable: 'secret2')]) {
+               sh ('S1.py ${secret1} ${secret2}')
 }
 }
 }
