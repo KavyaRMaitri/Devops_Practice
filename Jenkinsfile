@@ -10,9 +10,9 @@ pipeline {
                 }
             }
         }
-            stage ('Parallel Execution') {
+            stage('Parallel Stages') {
                 parallel {
-                    stage ('Stage 2') {
+                    stage('Stage 2') {
                         steps {
                             script {
                                 environment {
