@@ -10,7 +10,6 @@ pipeline {
                 }
             }
         }
-        stages {
             stage ('Parallel Execution') {
                 parallel {
                     stage ('Stage 2') {
@@ -31,6 +30,5 @@ pipeline {
                     }
                 }
             }
-        }
     }
 }
