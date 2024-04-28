@@ -1,5 +1,9 @@
 pipeline {
     agent any
+     environment {
+         num1 = credentials('secret1')
+         num2 = credentials('secret2')
+     }
     stages {
         stage('Stage 1') {
             steps {
@@ -15,11 +19,7 @@ pipeline {
                     stage('Stage 2') {
                         steps {
                             script {
-                                environment {
-                                    num1 = credentials('secret1')
-                                    num2 = credentials('secret2')
-                                    sh "python3 Secrete.py"
-                                }
+                                sh "python3 Secrete.py"
                             }
                         }
                     }
