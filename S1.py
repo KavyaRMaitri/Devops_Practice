@@ -1,15 +1,9 @@
-import os
-
 def add_numbers(num1, num2):
     return num1 + num2
 
 if __name__ == "__main__":
-    # Fetching input from Jenkins secrets
-    num1 = int(os.environ.get('kavya_Num1'))
-    num2 = int(os.environ.get('kavya_Num2'))
-    
-    # Adding the numbers
+    import sys
+    num1 = int(sys.argv[1])
+    num2 = int(sys.argv[2])
     result = add_numbers(num1, num2)
-    
-    # Printing the output
     print("The sum of", num1, "and", num2, "is:", result)
