@@ -1,7 +1,6 @@
 pipeline {
     agent any
-
-    stages {
+      
         stage('Stage 1') {
             steps {
                 script {
@@ -11,23 +10,27 @@ pipeline {
                 }
             }
         }
-        stage('Stage 2') {
-            parallel {
-                environment {
-                    num1 = credentials('secret1')
-                    num2 = credentials('secret2')
-                }
-                steps {
-                    script {
-                        sh "python3 Secrete.py ${num1} ${num2}"
+        stages {
+            stage ('Parallel Execution') {
+                parallel {
+                    stage ('Stage 2') {
+                        steps {
+                            script {
+                                environment {
+                                    num1 = credentials('secret1')
+                                    num2 = credentials('secret2')
+                                    sh "python3 Secrete.py ${num1} ${num2}"
+                                }
+                            }
+                        }
                     }
-                }
-                stage('Stage 3') {
-                    steps {
-                        sh "python3 Text.py"
+                    stage('Stage 3') {
+                        steps {
+                            sh "python3 Text.py"
+                        }
                     }
                 }
             }
-         }
-    }
+        }
 }
+                
