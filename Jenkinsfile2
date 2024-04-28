@@ -13,17 +13,17 @@ pipeline {
         }
             stage('Parallel Stages') {
                 parallel {
+                    environment {
+                        num1 = credentials('NUMBER1_SECRET')
+                        num2 = credentials('NUMBER2_SECRET')
+}
                     stage('Stage 2') {
                         steps {
                             script {
-                               environment {
-                                     num1 = credentials('NUMBER1_SECRET')
-                                     num2 = credentials('NUMBER2_SECRET')
-                                     sh ('python3 Secrete.py.py $num1 $num2')
+                               sh ('python3 Secrete.py.py $num1 $num2')
                                }
                             }
                         }
-                    }
                      stage('Stage 3') {
                         steps {
                             sh "python3 Text.py"
