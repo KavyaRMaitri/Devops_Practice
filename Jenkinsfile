@@ -11,5 +11,11 @@ pipeline {
                 }
             }
         }
+         stage('Stage 3') {
+            steps {
+                sh "python3 Text.py"
+            }
+         }
+
     }
 }
