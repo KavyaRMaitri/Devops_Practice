@@ -18,7 +18,7 @@ pipeline {
                                 environment {
                                     num1 = credentials('secret1')
                                     num2 = credentials('secret2')
-                                    sh "python3 Secrete.py ${num1} ${num2}"
+                                    sh "python3 Secrete.py"
                                 }
                             }
                         }
