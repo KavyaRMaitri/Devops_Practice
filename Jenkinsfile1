@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Stage 2') {
             steps {
-               withCredentials([string(credentialsId: 'secret1', variable: 'secret1'), string(credentialsId: 'secret2', variable: 'secret2')]) {
+               withCredentials([string(credentialsId: 'secret1', variable: 'num1'), string(credentialsId: 'secret2', variable: 'num2')]) {
                sh "S1.py ${num1} ${num2}"
 }
 }
