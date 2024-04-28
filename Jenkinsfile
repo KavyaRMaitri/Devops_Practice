@@ -11,9 +11,22 @@ pipeline {
                 }
             }
         }
-         stage('Stage 3') {
-            steps {
-                sh "python3 Text.py"
+        stage('Stage 2') {
+            parallel {
+                environment {
+                    num1 = credentials('secret1')
+                    num2 = credentials('secret2')
+                }
+                steps {
+                    script {
+                        sh "python3 Secrete.py ${num1} ${num2}"
+                    }
+                }
+                stage('Stage 3') {
+                    steps {
+                        sh "python3 Text.py"
+                    }
+                }
             }
          }
 
