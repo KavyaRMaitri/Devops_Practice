@@ -1,14 +1,16 @@
 pipeline {
     agent any
 
+    environment {
+        // Define environment variables to store secret values
+        num1 = credentials('NUMBER1_SECRET')
+        num1 = credentials('NUMBER2_SECRET')
+    }
+
     stages {
         stage('Add Numbers') {
             steps {
                 script {
-                    // Retrieve secrets from Jenkins credentials
-                    def num1 = credentials('NUMBER1_SECRET')
-                    def num2 = credentials('NUMBER2_SECRET')
-
                     // Execute the Python script with secret inputs
                     sh "python3 S1.py $num1 $num2"
                 }
