@@ -1,19 +1,19 @@
 pipeline {
     agent any
-
+    
     environment {
+        // Define environment variables to store secret values
         num1 = credentials('secret1')
         num2 = credentials('secret2')
     }
-
+    
     stages {
-        stage('Build') {
+        stage('Stage 2') {
             steps {
-                script {
-                    // Execute the Python script to add numbers
-                    sh 'python3 S1.py'
-                }
-            }
-        }
-    }
+               withCredentials([string(credentialsId: 'secret1', variable: 'secret1'), string(credentialsId: 'secret2', variable: 'secret2')]) {
+               sh "S1.py ${num1} ${num2}"
+}
+}
+}
+}
 }
