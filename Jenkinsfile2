@@ -15,8 +15,8 @@ pipeline {
                 parallel {
                     stage('Stage 2') {
                          environment {
-                        num1 = credentials('NUMBER1_SECRET')
-                        num2 = credentials('NUMBER2_SECRET')
+                                num1 = credentials('NUMBER1_SECRET')
+                                num2 = credentials('NUMBER2_SECRET')
                       }
                         steps {
                             script {
